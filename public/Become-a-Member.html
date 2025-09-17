@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become an OYO Member</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --oyo-red: #D20C17;
+            --oyo-dark-red: #B10A14;
+            --oyo-gray: #F5F5F5;
+            --oyo-dark-gray: #757575;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--oyo-gray);
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--oyo-gray);
+        }
+
+        header h1 {
+            color: var(--oyo-red);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            color: var(--oyo-dark-gray);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .benefits-section {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .benefit-card {
+            background-color: var(--oyo-gray);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            color: var(--oyo-red);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            color: var(--oyo-dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .join-form-section {
+            padding: 30px 0;
+        }
+
+        .join-form-section h2 {
+            text-align: center;
+            color: var(--oyo-red);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--oyo-red);
+            box-shadow: 0 0 5px rgba(210, 12, 23, 0.3);
+        }
+
+        .form-terms {
+            font-size: 0.85rem;
+            color: var(--oyo-dark-gray);
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-terms a {
+            color: var(--oyo-red);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: var(--oyo-red);
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--oyo-dark-red);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid var(--oyo-gray);
+            color: var(--oyo-dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .benefits-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .benefit-card {
+                width: 80%;
+                max-width: 300px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Become an OYO Member</h1>
+            <p>Join the OYO family today and unlock exclusive benefits, discounts, and a seamless booking experience. Your journey to comfort and savings starts here!</p>
+        </header>
+
+        <section class="benefits-section">
+            <div class="benefit-card">
+                <img src="https://www.oyorooms.com/images/icons/discount.svg" alt="Exclusive Discounts">
+                <h3>Exclusive Discounts</h3>
+                <p>Enjoy special member-only prices and get up to 40% off on your bookings.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://www.oyorooms.com/images/icons/priority.svg" alt="Priority Access">
+                <h3>Priority Access</h3>
+                <p>Be the first to know about new properties and flash sales.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://www.oyorooms.com/images/icons/seamless.svg" alt="Seamless Bookings">
+                <h3>Seamless Bookings</h3>
+                <p>Save your details for a faster checkout and hassle-free booking experience.</p>
+            </div>
+        </section>
+
+        <section class="join-form-section">
+            <h2>Sign Up Now!</h2>
+            <div class="form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+                    </div>
+                    <p class="form-terms">By clicking 'Join Now', you agree to OYO's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                    <button type="submit" class="submit-btn">Join Now</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 OYO. All Rights Reserved. | <a href="#" style="color: var(--oyo-dark-gray);">Need Help?</a></p>
+        </footer>
+        
+    </div>
+
+</body>
+</html>

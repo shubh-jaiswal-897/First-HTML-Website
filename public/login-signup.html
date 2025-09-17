@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up | OYO</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --oyo-red: #D20C17;
+            --oyo-dark-red: #B10A14;
+            --oyo-gray: #F5F5F5;
+            --oyo-dark-gray: #757575;
+            --white: #FFFFFF;
+            --black: #000000;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--oyo-gray);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-section {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1560934149-1ef5ef8a7a94?q=80&w=2940&auto=format&fit=crop') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .image-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .image-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .image-content p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .form-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            width: 80px;
+            height: auto;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--oyo-gray);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: var(--oyo-dark-gray);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: var(--oyo-red);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--oyo-red);
+        }
+
+        .form-container {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--oyo-red);
+            box-shadow: 0 0 5px rgba(210, 12, 23, 0.3);
+        }
+        
+        .terms-text {
+            font-size: 0.8rem;
+            color: var(--oyo-dark-gray);
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .terms-text a {
+            color: var(--oyo-red);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: var(--oyo-red);
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--oyo-dark-red);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .social-login p {
+            font-size: 0.9rem;
+            color: var(--oyo-dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            .image-section {
+                min-height: 200px;
+                display: none; /* Can be hidden on mobile for cleaner look */
+            }
+            
+            .form-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-section">
+            <div class="image-content">
+                <h2>Welcome to OYO</h2>
+                <p>Your journey to comfort and savings starts here. Get exclusive deals and a seamless booking experience by logging in or signing up.</p>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="logo">
+                <img src="https://www.oyorooms.com/static/icons/header-logo.svg" alt="OYO Logo">
+            </div>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="showForm('login')">Login</button>
+                <button class="tab-button" onclick="showForm('signup')">Sign Up</button>
+            </div>
+
+            <div id="login-form" class="form-container active">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="login-email">Email or Phone Number</label>
+                        <input type="text" id="login-email" name="email" placeholder="Enter your email or phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+                <div class="social-login">
+                    <p>or Login with</p>
+                    <div class="social-buttons">
+                        <button class="social-btn">
+                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+                        </button>
+                        <button class="social-btn">
+                            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="signup-form" class="form-container">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">Phone Number</label>
+                        <input type="tel" id="signup-phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Create Password</label>
+                        <input type="password" id="signup-password" name="password" placeholder="Create a strong password" required>
+                    </div>
+                    <p class="terms-text">By signing up, you agree to OYO's <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+                <div class="social-login">
+                    <p>or Sign up with</p>
+                    <div class="social-buttons">
+                        <button class="social-btn">
+                            <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google">
+                        </button>
+                        <button class="social-btn">
+                            <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Get all forms and buttons
+            const allForms = document.querySelectorAll('.form-container');
+            const allButtons = document.querySelectorAll('.tab-button');
+            
+            // Remove 'active' class from all forms and buttons
+            allForms.forEach(form => form.classList.remove('active'));
+            allButtons.forEach(button => button.classList.remove('active'));
+            
+            // Add 'active' class to the selected form and button
+            document.getElementById(formId + '-form').classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
