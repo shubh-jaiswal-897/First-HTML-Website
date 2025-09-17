@@ -1,3 +1,3 @@
 # First-HTML-Website
 
-# SIMILAR LIKE OYO HOTELS
+# similar to oyo hotels
